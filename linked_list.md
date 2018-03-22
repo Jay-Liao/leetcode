@@ -19,3 +19,30 @@ class Solution(object):
         node.val=node.next.val
         node.next=node.next.next
 ```
+# 206. Reverse Linked List (Easy/AC46)
+---
+Hint:
+A linked list can be reversed either iteratively or recursively. Could you implement both?
+
+```python
+# Definition for singly-linked list.
+# class ListNode(object):
+#     def __init__(self, x):
+#         self.val = x
+#         self.next = None
+
+class Solution(object):
+    def reverseList(self, head):
+        """
+        :type head: ListNode
+        :rtype: ListNode
+        """
+        prev = None
+        current = head
+        while current:
+            next_node = current.next
+            current.next = prev
+            prev = current
+            current = next_node
+        return prev
+```
