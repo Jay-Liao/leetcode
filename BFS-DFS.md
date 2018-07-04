@@ -116,3 +116,34 @@ class Solution:
         self.traversal(node.left, level + 1)
         self.traversal(node.right, level + 1)
 ```
+
+```python
+"""
+Round2: 99.62% Accepted
+"""
+
+# Definition for a binary tree node.
+# class TreeNode:
+#     def __init__(self, x):
+#         self.val = x
+#         self.left = None
+#         self.right = None
+
+class Solution:
+    # def __init__(self):
+    #     self.level_map = dict()
+    #     self.max_level = 0
+        
+    def findBottomLeftValue(self, root):
+        q = list()
+        q.append(root)
+        res = root.val
+        while len(q) > 0:
+            node = q.pop(0)
+            res = node.val
+            if node.right:
+                q.append(node.right)
+            if node.left:
+                q.append(node.left)
+        return res
+```
